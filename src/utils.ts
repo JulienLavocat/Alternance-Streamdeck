@@ -6,9 +6,12 @@ const COLORS: Record<string, string> = {
   Entreprise: '#1660e0',
   Formation: '#c40c4c',
   Ferie: '#0cc456',
+  empty: '#000000',
 };
 
-export function getIcon(activity: string) {
+export function getIcon(activity: string | undefined) {
+  console.log(activity);
+  if (!activity) activity = 'empty';
   return generateSolidColorIcon(COLORS[activity]);
 }
 

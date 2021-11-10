@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "@rweich/streamdeck-ts": "^2.0.0",
-    "canvas": "^2.8.0"
+    "@types/luxon": "^2.0.7",
+    "canvas": "^2.8.0",
+    "luxon": "^2.1.1"
   },
   "devDependencies": {
     "@amille/semantic-release-plugins": "^3.3.10",

@@ -4,12 +4,14 @@ import { getIcon } from './utils';
 
 const plugin = new Streamdeck().plugin();
 
-plugin.on('willAppear', ({ context }) => {
-  Data.load();
+function updateIcon(context: string) {
+  const [date, activity] = Data.getToday();
 
-  plugin.setImage(getIcon('Entreprise'), context);
-  setTimeout(() => plugin.setImage(getIcon('Formation'), context), 2000);
-  setTimeout(() => plugin.setImage(getIcon('Ferie'), context), 4000);
+  plugin.setImage(getIcon(activity), context);
+}
+
+plugin.on('willAppear', ({ context }) => {
+  Data.load().then((r) => updateIcon(context));
 });
 
 plugin.on('keyDown', (e) => {
