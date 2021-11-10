@@ -13,16 +13,19 @@ export class Data {
           const value = line.split(',');
           this.data.set(value[0], value[1]);
         }
+        console.log(this.data);
       });
   }
 
-  static getToday(): [DateTime, string | undefined] {
-    const date = DateTime.now().toUTC().set({ hour: 0, minute: 0, millisecond: 0, second: 0, day: 15 });
-    console.log(date.toISO());
-    return [date, this.getDate(date.toISO())];
+  static getToday(): [Date, string | undefined] {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    date.setDate(15);
+    console.log(date, date.toISOString());
+    return [date, this.getDate(date.toISOString())];
   }
 
-  static getDate(isoDate: string) {
-    return this.data.get(isoDate);
+  static getDate(date: string) {
+    return this.data.get(date);
   }
 }
