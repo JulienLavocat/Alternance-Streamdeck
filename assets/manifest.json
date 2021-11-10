@@ -2,7 +2,7 @@
   "Actions": [
     {
       "Icon": "images/action1.icon",
-      "Name": "Your first action",
+      "Name": "Alternance",
       "States": [
         {
           "Image": "images/action1.key",

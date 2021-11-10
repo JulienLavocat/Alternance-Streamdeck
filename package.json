@@ -6,18 +6,20 @@
   "author": "rweich",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && webpack --mode=development",
-    "build-prod": "yarn clean && webpack --mode=production",
+    "build": "yarn clean && webpack --mode=development && yarn plugin:install",
+    "build-prod": "yarn clean && webpack --mode=production && yarn plugin:install",
     "ci": "yarn type-check && yarn lint && yarn set-plugin-version 0.0.0",
     "clean": "rimraf ./dist/*",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "",
     "prepare": "husky install",
     "set-plugin-version": "ts-node build/scripts/set-plugin-version.ts",
     "type-check": "tsc --noEmit",
-    "update-template": "update-template https://github.com/rweich/streamdeck-ts-template"
+    "update-template": "update-template https://github.com/rweich/streamdeck-ts-template",
+    "plugin:install": "cp -r dist/* ~/AppData/Roaming/Elgato/StreamDeck/Plugins/"
   },
   "dependencies": {
-    "@rweich/streamdeck-ts": "^2.0.0"
+    "@rweich/streamdeck-ts": "^2.0.0",
+    "canvas": "^2.8.0"
   },
   "devDependencies": {
     "@amille/semantic-release-plugins": "^3.3.10",
@@ -54,12 +56,10 @@
   },
   "repository": "https://github.com/JulienLavocat/Alternance-Streamdeck",
   "bugs": "https://github.com/rweich/streamdeck-ts-template/issues",
-  "commitlint": {},
   "eslintConfig": {},
   "lint-staged": {
     "{src,test}/**/*.ts": [
-      "prettier --write",
-      "eslint --quiet --fix"
+      "prettier --write"
     ]
   },
   "prettier": "@rweich/prettier-config"
