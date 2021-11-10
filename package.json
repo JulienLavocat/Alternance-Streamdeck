@@ -1,6 +1,6 @@
 {
   "name": "@rweich/streamdeck-ts-template",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "a template to create streamdeck plugins in typescript",
   "private": true,
   "author": "rweich",
@@ -52,16 +52,10 @@
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
   },
-  "repository": "rweich/streamdeck-ts-template",
+  "repository": "https://github.com/JulienLavocat/Alternance-Streamdeck",
   "bugs": "https://github.com/rweich/streamdeck-ts-template/issues",
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "@rweich"
-  },
+  "commitlint": {},
+  "eslintConfig": {},
   "lint-staged": {
     "{src,test}/**/*.ts": [
       "prettier --write",
